@@ -40,14 +40,22 @@ $user = 'root';
 $password = '';
 $dbh = new PDO($dsn, $user, $password);
 $dbh->query('SET NAMES utf8;');
-$sql = 'select chiiki_name from tokei';
+$sql = 'select chiiki_code,chiiki_name from tokei';
 foreach ($dbh->query($sql) as $row) {
-    echo <<<EOM
-    <a href="get.php?timei={$row['chiiki_name']}">
-    {$row['chiiki_name']}  
-    </a>
-    EOM;
+  if ($row['chiiki_code'] % 1000 ==0) {
+    echo "<br>";
+    echo '<a href="get.php?timei='.$row['chiiki_name'].'" style="font-size:15pt;font-weight:bold;">';
+    echo "{$row['chiiki_name']}  ";
+    echo "</a>";
     echo ":";
+  } else {
+    echo '<a href="get.php?timei='.$row['chiiki_name'].'">';
+    echo "{$row['chiiki_name']}  ";
+    echo "</a>";
+    echo ":";
+  }
+  
+
 }
 
 

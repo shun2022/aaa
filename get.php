@@ -31,7 +31,7 @@ try{
 <body>
 <main>
 
-    <table border="1">
+    <table border="1" bgcolor="#dfecf9">
         <?php
             $counter = 1;
             foreach ($dbh->query($sql1) as $row1) {
@@ -65,7 +65,7 @@ try{
                     $data3 = "";                   
                 }
                 echo '<tr>';
-                echo '<td>'.$row1['setumei'].'</td>';
+                echo '<td bgcolor="#faebd7">'.$row1['setumei'].'</td>';
                 echo '<td nowrap>'.$data1.'</td>';
                 echo '<td>'.$data2.'</td>';
                 echo '<td width="125">'.$data3.'</td>';
